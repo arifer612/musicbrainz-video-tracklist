@@ -20,8 +20,8 @@ def subtract_time(time_init: str, time_final: str) -> str:
 def get_chapter_time(chapter: bs4.element.Tag) -> str:
     """Read the chapter and get the timedelta."""
     try:
-        init_time = chapter.find('ChapterTimeStart').text
-        final_time = chapter.find('ChapterTimeEnd').text
+        init_time = chapter.find('ChapterTimeStart').text  # type: ignore [reportOptionalMemberAccess]
+        final_time = chapter.find('ChapterTimeEnd').text  # type: ignore [reportOptionalMemberAccess]
         return subtract_time(init_time, final_time)
     except AttributeError:
         return ""
@@ -30,7 +30,7 @@ def get_chapter_time(chapter: bs4.element.Tag) -> str:
 def get_chapter_string(chapter: bs4.element.Tag) -> str:
     """Parse an appropriate title for the chapter."""
     try:
-        return chapter.find('ChapterString').text
+        return chapter.find('ChapterString').text  # type: ignore [reportOptionalMemberAccess]
     except AttributeError:
         return f"Chapter {chapter.find('ChapterUID')}"
 
