@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "mkv-chaps-to-mb"
+version = "0.1.0"
+description = "MKV chapters as a MusicBrainz tracklist"
+authors = ["Arif Er <arifer612@proton.me>"]
+license = "GPLv3"
+readme = "README.md"
+packages = [{include = "mkv_chaps_to_mb"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bs4 = "^0.0.2"
+lxml = "^5.1.0"
+
+[tool.poetry.group.dev.dependencies]
+epc = "^0.0.5"
+sexpdata = "1.0.0"
+importmagic = "^0.1.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
