@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mkv-chaps-to-mb"
-version = "0.1.0"
+version = "1.0.0"
 description = "MKV chapters as a MusicBrainz tracklist"
 authors = ["Arif Er <arifer612@proton.me>"]
 license = "GPLv3"

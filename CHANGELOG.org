@@ -1,0 +1,10 @@
+* Changelog
+All notable changes to this project will be documented in this file. See
+[[https://github.com/absolute-version/commit-and-tag-version][commit-and-tag-version]]
+for commit guidelines.
+
+** 1.0.0 (2024-01-28)
+*** Features
+- add support for MP4 chapter files 2c8a141
+- create a new project with default files d25d534
+- create the main script 05b2e46
