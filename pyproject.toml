@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "mkv-chaps-to-mb"
+name = "musicbrainz-video-tracklist"
 version = "1.0.0"
-description = "MKV chapters as a MusicBrainz tracklist"
+description = "Generate a tracklist of video recordings for MusicBrainz."
 authors = ["Arif Er <arifer612@proton.me>"]
 license = "GPLv3"
 readme = "README.md"
-packages = [{include = "mkv_chaps_to_mb"}]
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
