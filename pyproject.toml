@@ -9,8 +9,7 @@ packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-bs4 = "^0.0.2"
-lxml = "^5.1.0"
+ffprobe3-python3 = {git = "https://github.com/jboy/ffprobe3-python3"}
 
 [tool.poetry.group.dev.dependencies]
 epc = "^0.0.5"
