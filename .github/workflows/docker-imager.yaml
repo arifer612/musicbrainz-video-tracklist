@@ -38,5 +38,5 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: >-
-            ${{ secrets.GITEA_REGISTRY_URL }}/${{ secrets.GITEA_REGISTRY_USERNAME }}/$PACKAGE:latest,
-            ${{ secrets.GITEA_REGISTRY_URL }}/${{ secrets.GITEA_REGISTRY_USERNAME }}/$PACKAGE:${{ steps.get-current-tag.outputs.tag }}
+            ${{ secrets.PRIVATE_REGISTRY_URL }}/${{ secrets.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:latest,
+            ${{ secrets.PRIVATE_REGISTRY_URL }}/${{ secrets.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:${{ steps.get-current-tag.outputs.tag }}
