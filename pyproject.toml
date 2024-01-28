@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "musicbrainz-video-tracklist"
-version = "2.1.0"
+version = "2.1.1"
 description = "Generate a tracklist of video recordings for MusicBrainz."
 authors = ["Arif Er <arifer612@proton.me>"]
 license = "GPLv3"
