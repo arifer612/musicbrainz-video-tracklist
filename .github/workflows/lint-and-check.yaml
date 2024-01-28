@@ -12,6 +12,7 @@ env:
 jobs:
   lint-and-check:
     runs-on: ubuntu-latest
+    container: catthehacker/ubuntu:act-latest
     strategy:
       fail-fast: false
       matrix:
