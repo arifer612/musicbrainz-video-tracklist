@@ -4,7 +4,7 @@ version = "1.0.0"
 description = "Generate a tracklist of video recordings for MusicBrainz."
 authors = ["Arif Er <arifer612@proton.me>"]
 license = "GPLv3"
-readme = "README.md"
+readme = "README.org"
 packages = [{include = "musicbrainz_video_tracklist"}]
 
 [tool.poetry.dependencies]
