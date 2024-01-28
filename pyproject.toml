@@ -16,7 +16,14 @@ epc = "^0.0.5"
 sexpdata = "1.0.0"
 importmagic = "^0.1.7"
 pytest = "^8.0.0"
+mypy = "^1.8.0"
+pylint = "^3.0.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+packages = "musicbrainz_video_tracklist"
+
+[tool.pylint]
