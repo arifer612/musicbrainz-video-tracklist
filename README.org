@@ -1,6 +1,6 @@
 #+TITLE: MusicBrainz Video Tracklist Generator
 #+AUTHOR: Arif Er
-#+DATE: 2024-01-28
+#+DATE: 2024-01-29
 
 [[LICENSE][https://img.shields.io/badge/license-GPL_3-green.svg]]
 [[https://develop.spacemacs.org][file:https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg]]
@@ -10,16 +10,31 @@ recordings for MusicBrainz from the chapters of a video file.
 
 * Dependencies
 
-This project requires the following programs:
+When run locally, this project requires the following programs:
 - poetry
 - ffprobe
 
+Otherwise, when [[* Docker container][run as a Docker container]], there is no need to worry about these
+dependencies.
+
 * Usage
 
-Clone this repository, install the dependencies, and run the script
+** Local usage
+
+Clone this repository, install the dependencies, and run the script.
 #+BEGIN_SRC shell
   git clone https://github.com/arifer612/musicbrainz-video-tracklist
   cd musicbrainz-video-tracklist
   poetry install
   ./generate-tracklist "/path/to/video/file"
+#+END_SRC
+
+** Docker container
+
+Alternatively, run this as a Docker container.
+
+Assuming that the video file is in the current working directory, an example
+=docker run= execution will look like
+#+BEGIN_SRC shell
+  docker run --rm -v .:/media:ro ghrc.io/arifer612/musicbrainz-video-tracklist:latest /media/video_file_name
 #+END_SRC
