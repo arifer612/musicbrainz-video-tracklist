@@ -49,5 +49,8 @@ def read_and_print(file_path: str) -> None:
     if file_ext == ".xml":
         chapters = _read_file(file_path, mkv__read_file)
         _print_chapters(chapters, mkv__get_chapter_string, mkv__get_chapter_time)
+    elif file_ext == ".txt":
+        chapters = _read_file(file_path, mp4__read_file)
+        _print_chapters(chapters, mp4__get_chapter_string, mp4__get_chapter_time)
     else:
-        raise TypeError("Only MKV chapters are supported at the moment.")
+        raise TypeError("Only MKV and MP4 chapters are supported at the moment.")
