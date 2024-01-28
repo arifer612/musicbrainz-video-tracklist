@@ -2,7 +2,7 @@
 
 from typing import Callable, Any
 
-import ffprobe3
+import ffprobe3  # type: ignore
 
 
 def fraction_to_float(fraction: str) -> float:
@@ -14,6 +14,7 @@ def fraction_to_float(fraction: str) -> float:
 
 
 class Chapters():
+    """An object containing the chapters of a video file."""
     def __init__(self, file_path: str, prober: Callable[[str], Any]):
         self.file = file_path
         self.prober = prober
@@ -22,7 +23,7 @@ class Chapters():
     def chapters(self) -> list:
         """Get the list of chapters using an appropriate prober."""
         metadata = self.prober(self.file)
-        if "chapters" not in metadata or not len(metadata['chapters']):
+        if "chapters" not in metadata or not metadata['chapters']:
             raise KeyError(f"{self.file} does not have chapters.")
         return metadata['chapters']
 
@@ -38,13 +39,10 @@ class Chapters():
         """Get the length of each chapter."""
         if any(key not in chapter for key in ['time_base', 'start', 'end']):
             raise KeyError(f"Start/End time is missing for {self.file}.")
-        time_diff = (chapter['end'] - chapter['start'])
+        time_diff = chapter['end'] - chapter['start']
         time_base = fraction_to_float(chapter['time_base'])
         time_diff_seconds = int(time_diff * time_base)
-        return "{:02}:{:02}".format(
-            time_diff_seconds % 3600//60,
-            time_diff_seconds % 60,
-        )
+        return f"{time_diff_seconds % 3600//60:02}:{time_diff_seconds % 60:02}"
 
     def print_chapters(self) -> str:
         """Print the chapter title and duration, given functions that read the

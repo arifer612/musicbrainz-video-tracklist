@@ -2,7 +2,7 @@
 """Parse a chapter file into a tracklist for MusicBrainz."""
 
 import sys
-from src import print_chapters
+from musicbrainz_video_tracklist import print_chapters
 
 
 if __name__ == "__main__":
