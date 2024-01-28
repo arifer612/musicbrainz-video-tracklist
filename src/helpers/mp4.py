@@ -1,7 +1,16 @@
-### mp4.py
-## Library of tools for manipulating mp4 files.
-## The first line is the total duration of the video (in milliseconds).
-## Succeeding lines are the chapter markers of the video.
+"""Library of tools for manipulating mp4 files.
+
+Chapter files are expected to be of the following format:
+================================================
+Source Duration               : Duration in ms
+00:00:00.000                  : Chapter 1 title
+00:00:10.000                  : Chapter 2 title
+...
+02:30:00.000                  : Chapter N title
+================================================
+This format can be obtained from mediainfo.
+"""
+
 
 import datetime
 

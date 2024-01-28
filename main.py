@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-### chaps-to-mb
-## Parse a chapter file into a tracklist for MusicBrainz
+"""Parse a chapter file into a tracklist for MusicBrainz."""
 
 import sys
 from src import print_chapters

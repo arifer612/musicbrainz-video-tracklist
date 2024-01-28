@@ -1,7 +1,6 @@
-### main.py
-## The main library of the project
+"""The main library of the project."""
 
-from . import helper
+from . import helpers
 import os
 
 
@@ -20,9 +19,9 @@ def print_chapters(file_path: str) -> None:
     """Print the chapters."""
     file_ext = file_extension(file_path)
     if file_ext == ".xml":
-        chapters_file = helper.MKV(file_path)
+        chapters_file = helpers.MKV(file_path)
     elif file_ext == ".txt":
-        chapters_file = helper.MP4(file_path)
+        chapters_file = helpers.MP4(file_path)
     else:
         raise TypeError("Only MKV and MP4 chapters are supported at the moment.")
     print(chapters_file)

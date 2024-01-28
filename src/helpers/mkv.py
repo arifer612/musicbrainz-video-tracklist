@@ -1,5 +1,4 @@
-### mkv.py
-## Library of tools of manipulating mkv files
+"""Library of tools of manipulating mkv files"""
 
 import bs4
 

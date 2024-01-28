@@ -1,5 +1,4 @@
-### chapters.py
-## An abstract Chapters object
+"""An abstract Chapers object."""
 
 from abc import ABC, abstractmethod, abstractproperty
 from ..main import default_file_extensions
