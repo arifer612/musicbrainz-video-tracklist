@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file. See
 [[https://github.com/absolute-version/commit-and-tag-version][commit-and-tag-version]]
 for commit guidelines.
 
+** [[///compare/v1.0.0...v2.0.0][2.0.0]] (2024-01-28)
+*** ⚠ BREAKING CHANGES
+- get tracklist from video files directly
+
+*** Features
+- get tracklist from video files directly 74df60e
+
 ** 1.0.0 (2024-01-28)
 *** Features
 - add support for MP4 chapter files 2c8a141
