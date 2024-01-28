@@ -16,6 +16,7 @@ lxml = "^5.1.0"
 epc = "^0.0.5"
 sexpdata = "1.0.0"
 importmagic = "^0.1.7"
+pytest = "^8.0.0"
 
 [build-system]
 requires = ["poetry-core"]
