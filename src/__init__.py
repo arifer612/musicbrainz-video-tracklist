@@ -1,2 +1,2 @@
 from . import helper
-from .main import read_and_print
+from .main import print_chapters

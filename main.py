@@ -3,8 +3,8 @@
 ## Parse a chapter file into a tracklist for MusicBrainz
 
 import sys
-from src import read_and_print
+from src import print_chapters
 
 
 if __name__ == "__main__":
-    read_and_print(sys.argv[1])
+    print_chapters(sys.argv[1])
