@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "**.py"
+      - "generate-tracklist"
 
 env:
   MODULES: musicbrainz_video_tracklist
