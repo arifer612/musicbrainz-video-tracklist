@@ -1,5 +1,7 @@
 """The main library of the project."""
 
+
+import re
 from functools import reduce
 from typing import Any, Callable
 
@@ -8,6 +10,43 @@ def fraction_to_float(fraction: str) -> float:
     """Convert a string fraction to a floating number."""
     components = [float(component) for component in fraction.split("/")]
     return reduce(lambda x, y: x / y, components)
+
+
+def sanitise_title(title: str) -> str:
+    """Read the chapter title and sanitise it.
+
+    For example,
+    - '1. Chapter Title 1' --> 'Chapter Title 1'
+    - '01. Chapter Title 1' --> 'Chapter Title 1'
+    - '1. 2. Chapter Title 1' --> '2. Chapter Title 1'
+    - '[1] Chapter Title 1' --> 'Chapter Title 1'
+    - '[01] Chapter Title 1' --> 'Chapter Title 1'
+    - '1) Chapter Title 1' --> 'Chapter Title 1'
+    - '01) Chapter Title 1' --> 'Chapter Title 1'
+    - 'Chapter Title 1' --> 'Chapter Title 1'
+    - ':1: Chapter Title 1' --> ':1: Chapter Title 1'
+    - '1 Day to Christmas' --> '1 Day to Christmas'
+    - '2B Pencils are Good' --> '2B Pencils are Good'
+
+    """
+    if not title:
+        raise ValueError("The title must not be empty.")
+    try:
+        first_chunk, second_chunk = title.split(None, 1)
+        end_symbol_regex = r"[.)\]\}:]"
+        regexes = [
+            fr"\d+{end_symbol_regex}+", # starts with digits, ends with .)]}:
+            fr"\[\d+[.)\}}:]*\]{end_symbol_regex}*",  # within brackets
+            r"\[\d+[.\]\}:]*\){end_symbol_regex}*",  # within parentheses
+            r"\[\d+[.)\]:]*\}}{end_symbol_regex}*",  # within braces
+        ]
+        if re.search(rf'^({"|".join(regexes)})$', first_chunk):
+            return sanitise_title(second_chunk)
+        return title
+    except ValueError:
+        return title
+    except AttributeError as exc:
+        raise TypeError("The title must be a string.") from exc
 
 
 class Chapters:
@@ -38,7 +77,7 @@ class Chapters:
         try:
             title = chapter["tags"]["title"]
             if title:
-                return title
+                return sanitise_title(title)
             return f"Chapter {chapter['id']}"
         except KeyError:
             return f"Chapter {chapter['id']}"
