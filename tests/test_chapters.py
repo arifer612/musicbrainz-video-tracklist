@@ -57,12 +57,12 @@ def test_get_chapter_string():
         testChapters.get_chapter_string(chapter) for chapter in testChapters.chapters
     ]
     assert chapter_titles == [
-        "01. Chapter 1",
-        "2. Chapter 2",
-        "[03] Chapter 3",
-        "[4] Chapter 4",
-        "05) Chapter 5",
-        "6) Chapter 6",
+        "Chapter 1",
+        "Chapter 2",
+        "Chapter 3",
+        "Chapter 4",
+        "Chapter 5",
+        "Chapter 6",
         "Chapter 7",
         ":8: Chapter 8",
     ]
@@ -90,12 +90,12 @@ def test_print_chapter():
     time duration, and be indexed by integers."""
     assert str(testChapters) == "\n".join(
         [
-            "1. 01. Chapter 1 (06:02)",
-            "2. 2. Chapter 2 (01:38)",
-            "3. [03] Chapter 3 (03:41)",
-            "4. [4] Chapter 4 (05:23)",
-            "5. 05) Chapter 5 (05:21)",
-            "6. 6) Chapter 6 (05:49)",
+            "1. Chapter 1 (06:02)",
+            "2. Chapter 2 (01:38)",
+            "3. Chapter 3 (03:41)",
+            "4. Chapter 4 (05:23)",
+            "5. Chapter 5 (05:21)",
+            "6. Chapter 6 (05:49)",
             "7. Chapter 7 (04:45)",
             "8. :8: Chapter 8 (05:23)",
         ]
