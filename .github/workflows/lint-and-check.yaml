@@ -36,3 +36,5 @@ jobs:
         run: poetry run pylint "$MODULES"
       - name: Check static typing
         run: poetry run mypy "$MODULES"
+      - name: Test code
+        run: poetry run pytest --cov
