@@ -18,6 +18,8 @@ importmagic = "^0.1.7"
 pytest = "^8.0.0"
 mypy = "^1.8.0"
 pylint = "^3.0.3"
+pytest-cov = "^4.1.0"
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]
@@ -27,3 +29,8 @@ build-backend = "poetry.core.masonry.api"
 packages = "musicbrainz_video_tracklist"
 
 [tool.pylint]
+
+[tool.isort]
+profile = "black"
+src_paths = ["test", "musicbrainz_video_tracklist"]
+line_length = 80
