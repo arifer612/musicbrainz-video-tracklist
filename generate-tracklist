@@ -2,8 +2,18 @@
 """Parse a chapter file into a tracklist for MusicBrainz."""
 
 import sys
-from musicbrainz_video_tracklist import print_chapters
+import ffprobe3  # type: ignore
+
+from musicbrainz_video_tracklist import Chapters
 
 
 if __name__ == "__main__":
-    print_chapters(sys.argv[1])
+    chapters = Chapters(sys.argv[1], ffprobe3.probe)
+    try:
+        print(chapters)
+    except ValueError as ve:
+        print(ve)
+    except KeyError as ke:
+        print(ke)
+    except ffprobe3.exceptions.FFprobeMediaFileError as fe:
+        print(fe)
