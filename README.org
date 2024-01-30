@@ -4,6 +4,7 @@
 
 [[LICENSE][https://img.shields.io/badge/license-GPL_3-green.svg]]
 [[https://develop.spacemacs.org][https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg]]
+[[https://codecov.io/gh/arifer612/musicbrainz-video-tracklist][https://codecov.io/gh/arifer612/musicbrainz-video-tracklist/graph/badge.svg]]
 
 This project provides the tools and a script to generate a tracklist of video
 recordings for MusicBrainz from the chapters of a video file.
