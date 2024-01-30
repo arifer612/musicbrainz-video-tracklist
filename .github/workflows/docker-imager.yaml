@@ -12,8 +12,17 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     container: catthehacker/ubuntu:act-latest
     steps:
+      - name: Check if Registry details are available
+        env:
+          REGISTRY_URL: ${{ secrets.FORGE_REGISTRY_URL }}
+        if: ${{ env.REGISTRY_URL }}
+        run: echo "Registry url is available. Continuing..."
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -24,19 +33,47 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
+      - name: Login to Forge registry
+        uses: docker/login-action@v1
+        env:
+          FORGE_REGISTRY_URL: ${{ secrets.FORGE_REGISTRY_URL }}
+        if: ${{ env.FORGE_REGISTRY_URL }}
+        id: login-forge
+        with:
+          registry: ${{ secrets.FORGE_REGISTRY_URL }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push to Forge
+        uses: docker/build-push-action@v2
+        env:
+          FORGE_REGISTRY_URL: ${{ secrets.FORGE_REGISTRY_URL }}
+        with:
+          context: .
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: |
+            ${{ env.FORGE_REGISTRY_URL }}/${{ github.actor }}/${{ env.PACKAGE }}:latest
+            ${{ env.FORGE_REGISTRY_URL }}/${{ github.actor }}/${{ env.PACKAGE }}:${{ steps.get-current-tag.outputs.tag }}
+
       - name: Login to private registry
         uses: docker/login-action@v1
+        id: login-private
+        env:
+          PRIVATE_REGISTRY_URL: ${{ secrets.PRIVATE_REGISTRY_URL }}
+        if: ${{ env.PRIVATE_REGISTRY_URL }}
         with:
           registry: ${{ secrets.PRIVATE_REGISTRY_URL }}
           username: ${{ secrets.PRIVATE_REGISTRY_USERNAME }}
           password: ${{ secrets.PRIVATE_REGISTRY_PASSWORD }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          tags: >-
-            ${{ secrets.PRIVATE_REGISTRY_URL }}/${{ secrets.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:latest,
-            ${{ secrets.PRIVATE_REGISTRY_URL }}/${{ secrets.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:${{ steps.get-current-tag.outputs.tag }}
+      - name: Push to private registry
+        env:
+          PRIVATE_REGISTRY_URL: ${{ secrets.PRIVATE_REGISTRY_URL }}
+          PRIVATE_REGISTRY_USERNAME: ${{ secrets.PRIVATE_REGISTRY_USERNAME }}
+        if: ${{ env.PRIVATE_REGISTRY_URL && success() }}
+        run: |
+          docker buildx imagetools create \
+            -- tag ${{ env.PRIVATE_REGISTRY_URL }}/${{ env.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:latest \
+            -- tag ${{ env.PRIVATE_REGISTRY_URL }}/${{ env.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:${{ steps.get-current-tag.outputs.tag }} \
+            ${{ secrets.FORGE_REGISTRY_URL }}/${{ github.actor }}/${{ env.PACKAGE }}:latest
