@@ -72,7 +72,7 @@ FROM python-base as production
 
 LABEL org.opencontainers.image.authors="Arif Er <arifer612@proton.me>"
 LABEL description="Generate a tracklist of video recordings for MusicBrainz."
-LABEL version="2.1.2"
+LABEL version="2.2.0"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y --no-install-recommends \

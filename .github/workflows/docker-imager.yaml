@@ -42,7 +42,7 @@ jobs:
         with:
           registry: ${{ secrets.FORGE_REGISTRY_URL }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.FORGE_REGISTRY_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Build and push to Forge
         uses: docker/build-push-action@v2
