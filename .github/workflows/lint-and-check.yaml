@@ -10,6 +10,7 @@ on:
       - "**.py"
       - ".github/workflows/lint-and-check.yaml"
       - "generate-tracklist"
+  pull_request:
 
 env:
   MODULES: musicbrainz_video_tracklist
@@ -18,7 +19,6 @@ env:
 jobs:
   lint-and-check:
     runs-on: ubuntu-latest
-    container: catthehacker/ubuntu:act-latest
     strategy:
       fail-fast: false
       matrix:
@@ -28,6 +28,8 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Setup Python, Poetry and Dependencies
         uses: packetcoders/action-setup-cache-python-poetry@main
         with:
