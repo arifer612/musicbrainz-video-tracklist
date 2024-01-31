@@ -35,8 +35,8 @@ def sanitise_title(title: str) -> str:
         first_chunk, second_chunk = title.split(None, 1)
         end_symbol_regex = r"[.)\]\}:]"
         regexes = [
-            fr"\d+{end_symbol_regex}+", # starts with digits, ends with .)]}:
-            fr"\[\d+[.)\}}:]*\]{end_symbol_regex}*",  # within brackets
+            rf"\d+{end_symbol_regex}+",  # starts with digits, ends with .)]}:
+            rf"\[\d+[.)\}}:]*\]{end_symbol_regex}*",  # within brackets
             r"\[\d+[.\]\}:]*\){end_symbol_regex}*",  # within parentheses
             r"\[\d+[.)\]:]*\}}{end_symbol_regex}*",  # within braces
         ]
