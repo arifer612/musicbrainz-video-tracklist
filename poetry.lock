@@ -13,6 +13,21 @@ files = [
 ]
 
 [[package]]
+name = "autoflake"
+version = "2.2.1"
+description = "Removes unused imports and unused variables"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "autoflake-2.2.1-py3-none-any.whl", hash = "sha256:265cde0a43c1f44ecfb4f30d95b0437796759d07be7706a2f70e4719234c0f79"},
+    {file = "autoflake-2.2.1.tar.gz", hash = "sha256:62b7b6449a692c3c9b0c916919bbc21648da7281e8506bcf8d3f8280e431ebc1"},
+]
+
+[package.dependencies]
+pyflakes = ">=3.0.0"
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -292,6 +307,18 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
+name = "pyflakes"
+version = "3.2.0"
+description = "passive checker of Python programs"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pyflakes-3.2.0-py2.py3-none-any.whl", hash = "sha256:84b5be138a2dfbb40689ca07e2152deb896a65c3a3e24c251c5c62489568074a"},
+    {file = "pyflakes-3.2.0.tar.gz", hash = "sha256:1c61603ff154621fb2a9172037d84dca3500def8c8b630657d1701f026f8af3f"},
+]
+
+[[package]]
 name = "pylint"
 version = "3.0.3"
 description = "python code static checker"
@@ -414,4 +441,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "053b215d7dc825f87c2c21993e7f0b2a4f06570ae9c9bbf7ed28191c0e1d8fbb"
+content-hash = "644d38f9500872a469a41d7ca12c79693ed9eaf2b3a63f815261f033bafb9ae7"
