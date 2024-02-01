@@ -12,7 +12,7 @@ help:
 .PHONY: help Makefile
 
 clear_autodocs:
-	@[[ -d "${APIDOCDIR}" ]] && \
+	@[ -d "${APIDOCDIR}" ] && \
 	rm -rf "${APIDOCDIR}" || \
 	true
 
