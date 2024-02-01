@@ -26,8 +26,8 @@ Clone this repository, install the dependencies, and run the script.
 #+BEGIN_SRC shell
   git clone https://github.com/arifer612/musicbrainz-video-tracklist
   cd musicbrainz-video-tracklist
-  poetry install
-  ./generate-tracklist "/path/to/video/file"
+  poetry install --only main
+  poetry run ./generate-tracklist "/path/to/video/file"
 #+END_SRC
 
 ** Docker container
