@@ -22,6 +22,19 @@ pytest-cov = "^4.1.0"
 isort = "^5.13.2"
 autoflake = "^2.2.1"
 
+[tool.poetry.group.docs.dependencies]
+sphinx = "^7.2.6"
+sphinx-pyproject = "^0.3.0"
+sphinx-toolbox = "^3.5.0"
+sphinx-notfound-page = "^1.0.0"
+sphinx-copybutton = "^0.5.2"
+default-values = "^0.6.0"
+sphinx-debuginfo = "^0.2.2.post1"
+seed-intersphinx-mapping = "^1.2.2"
+furo = "^2024.1.29"
+html-section = "^0.3.0"
+sphinx-autodoc-typehints = "^1.25.3"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
@@ -38,3 +51,87 @@ line_length = 80
 
 [tool.pyright]
 disableOrganizeImports = true
+
+[tool.sphinx-pyproject]
+## GitHub
+github_username = "arifer612"
+github_repository = "musicbrainz-video-tracklist"
+
+## Boilerplate
+copyright = "2024 Arif Er"
+project = "musicbrainz-video-tracklist"
+package_root = "musicbrainz_video_tracklist"
+release = "2.2.0"
+language = "en"
+
+## Extensions
+extensions = [
+    "sphinx_toolbox.more_autosummary",
+    "sphinx_toolbox.shields",
+    "sphinx_toolbox.installation",
+    "sphinx_toolbox.documentation_summary",
+    "sphinx_toolbox.tweaks.param_dash",
+    "sphinx_toolbox.tweaks.latex_layout",
+    "sphinx_toolbox.tweaks.latex_toc",
+    "html_section",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",
+    "notfound.extension",
+    "sphinx_copybutton",
+    "sphinxcontrib.default_values",
+    "sphinx_debuginfo",
+    "sphinx_toolbox.more_autosummary.column_widths",
+]
+
+## Templating
+gitstamp_fmt = "%d %b %Y"
+templates_path = [ "_templates",]
+html_static_path = [ "_static",]
+source_suffix = ".rst"
+master_doc = "index"
+suppress_warnings = [ "image.nonlocal_uri",]
+pygments_style = "default"
+
+## Configuration
+add_module_names = false
+hide_none_rtype = true
+all_typevars = true
+overloads_location = "bottom"
+autodoc_exclude_members = [
+    "__dict__",
+    "__class__",
+    "__dir__",
+    "__weakref__",
+    "__module__",
+    "__annotations__",
+    "__orig_bases__",
+    "__parameters__",
+    "__subclasshook__",
+    "__init_subclass__",
+    "__attrs_attrs__",
+    "__init__",
+    "__new__",
+    "__getnewargs__",
+    "__abstractmethods__",
+    "__hash__",
+]
+napoleon_use_param = true
+napoleon_numpy_docstring = true
+
+## HTML theming
+html_theme = "furo"
+html_theme_path = [ "../..",]
+html_show_sourcelink = true
+html_codeblock_linenos_style = "table"
+
+[tool.sphinx-pyproject.html_theme_options.light_css_variables]
+toc-title-font-size = "12pt"
+toc-font-size = "12pt"
+admonition-font-size = "12pt"
+
+[tool.sphinx-pyproject.html_theme_options.dark_css_variables]
+toc-title-font-size = "12pt"
+toc-font-size = "12pt"
+admonition-font-size = "12pt"
