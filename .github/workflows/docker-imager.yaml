@@ -5,12 +5,13 @@ on:
   push:
     tags:
       - v*
+  workflow_dispatch:
 
 env:
   PACKAGE: musicbrainz-video-tracklist
 
 jobs:
-  publish:
+  build-and-push:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -72,8 +73,8 @@ jobs:
           PRIVATE_REGISTRY_URL: ${{ secrets.PRIVATE_REGISTRY_URL }}
           PRIVATE_REGISTRY_USERNAME: ${{ secrets.PRIVATE_REGISTRY_USERNAME }}
         if: ${{ env.PRIVATE_REGISTRY_URL && success() }}
-        run: |
-          docker buildx imagetools create \
-            -- tag ${{ env.PRIVATE_REGISTRY_URL }}/${{ env.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:latest \
-            -- tag ${{ env.PRIVATE_REGISTRY_URL }}/${{ env.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:${{ steps.get-current-tag.outputs.tag }} \
-            ${{ secrets.FORGE_REGISTRY_URL }}/${{ github.actor }}/${{ env.PACKAGE }}:latest
+        run: >
+          docker buildx imagetools create
+          -- tag ${{ env.PRIVATE_REGISTRY_URL }}/${{ env.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:latest
+          -- tag ${{ env.PRIVATE_REGISTRY_URL }}/${{ env.PRIVATE_REGISTRY_USERNAME }}/${{ env.PACKAGE }}:${{ steps.get-current-tag.outputs.tag }}
+          ${{ secrets.FORGE_REGISTRY_URL }}/${{ github.actor }}/${{ env.PACKAGE }}:${{ steps.get-current-tag.outputs.tag }}
