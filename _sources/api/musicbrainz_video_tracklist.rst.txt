@@ -1,0 +1,18 @@
+:mod:`musicbrainz_video_tracklist`
+==================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   musicbrainz_video_tracklist.main
+
+Module contents
+---------------
+
+.. automodule:: musicbrainz_video_tracklist
+   :members:
+   :undoc-members:
+   :show-inheritance:

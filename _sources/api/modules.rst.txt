@@ -1,0 +1,7 @@
+musicbrainz_video_tracklist
+===========================
+
+.. toctree::
+   :maxdepth: 4
+
+   musicbrainz_video_tracklist

@@ -1,0 +1,7 @@
+:mod:`musicbrainz_video_tracklist.main`
+=======================================
+
+.. automodule:: musicbrainz_video_tracklist.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
