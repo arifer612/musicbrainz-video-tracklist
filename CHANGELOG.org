@@ -3,23 +3,42 @@ All notable changes to this project will be documented in this file. See
 [[https://github.com/absolute-version/commit-and-tag-version][commit-and-tag-version]]
 for commit guidelines.
 
-** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.1.2...v2.2.0][2.2.0]] (2024-01-30)
+** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.2.0...v2.2.1][2.2.1]]
+(2024-04-14)
 *** Features
-- add sanitise_title to sanitise chapter titles ca115bc
+- add documentation and deployment to gh-pages
+  ([[https://github.com/arifer612/musicbrainz-video-tracklist/commit/5f53145826b1cccc0bb22a904fe2f2a9be53492e][5f53145]])
+- add script checks for files
+  ([[https://github.com/arifer612/musicbrainz-video-tracklist/commit/e0a2b9ef485dfbd31ae1cf36511d9679ee45eb98][e0a2b9e]])
+- change workdir to /media
+  ([[https://github.com/arifer612/musicbrainz-video-tracklist/commit/36c264131fc3780d68ad93455bfa81af92da76e1][36c2641]])
 
-** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.1.1...v2.1.2][2.1.2]] (2024-01-28)
+*** Bug Fixes
+- typo in README
+  ([[https://github.com/arifer612/musicbrainz-video-tracklist/commit/08e5d83c4f7e0de45e13016e37d041d0e8864fd9][08e5d83]])
+
+** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.1.2...v2.2.0][2.2.0]]
+(2024-01-30)
+*** Features
+- add sanitisetitle to sanitise chapter titles ca115bc
+
+** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.1.1...v2.1.2][2.1.2]]
+(2024-01-28)
 *** Bug Fixes
 - workflow environments 7bb5105
 
-** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.1.0...v2.1.1][2.1.1]] (2024-01-28)
+** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.1.0...v2.1.1][2.1.1]]
+(2024-01-28)
 *** Bug Fixes
 - workflow secrets 488992b
 
-** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.0.0...v2.1.0][2.1.0]] (2024-01-28)
+** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v2.0.0...v2.1.0][2.1.0]]
+(2024-01-28)
 *** Features
 - add a Dockerfile to run the script in a container 917c8ee
 
-** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v1.0.0...v2.0.0][2.0.0]] (2024-01-28)
+** [[https://github.com/arifer612/musicbrainz-video-tracklist/compare/v1.0.0...v2.0.0][2.0.0]]
+(2024-01-28)
 *** ⚠ BREAKING CHANGES
 - get tracklist from video files directly
 
