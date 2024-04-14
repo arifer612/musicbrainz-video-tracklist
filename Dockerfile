@@ -83,7 +83,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 COPY --from=builder-base $POETRY_HOME $POETRY_HOME
 COPY --from=builder-base $VIRTUAL_ENV $VIRTUAL_ENV
 
-WORKDIR /app
-COPY . ./
+WORKDIR /media
+COPY . /app
 COPY generate-tracklist /usr/local/bin/generate-tracklist
 ENTRYPOINT ["/usr/local/bin/generate-tracklist"]
