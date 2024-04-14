@@ -14,7 +14,6 @@ on:
 
 env:
   MODULES: musicbrainz_video_tracklist
-  CODECOV_UPLOAD: ${{ vars.CODECOV_UPLOAD }}
 
 jobs:
   lint-and-check:
@@ -45,5 +44,10 @@ jobs:
         if: always()
         run: poetry run pytest --cov --cov-report=xml
       - name: Upload to Codecov
-        if: ${{ env.CODECOV_UPLOAD == 'true' }}
-        uses: codecov/codecov-action@v3
+        if: ${{ env.CODECOV_TOKEN }}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ env.CODECOV_TOKEN }}
+          slug: ${{ github.repository }}
