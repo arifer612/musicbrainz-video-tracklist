@@ -37,7 +37,7 @@ Documentation for musicbrainz-video-tracklist
 		:alt: GitHub top language
 
 	.. |commits-since| github-shield::
-		:commits-since: v2.2.0
+		:commits-since: v2.2.1
 		:alt: GitHub commits since tagged version
 
 	.. |commits-latest| github-shield::
