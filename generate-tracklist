@@ -8,6 +8,11 @@ from musicbrainz_video_tracklist import Chapters
 
 
 if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        raise SyntaxError("Please specify a file to probe.")
+    if len(sys.argv) > 2:
+        raise SyntaxError("Only one video file can be checked at a time.")
+
     chapters = Chapters(sys.argv[1], ffprobe3.probe)
     try:
         print(chapters)
