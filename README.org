@@ -37,5 +37,6 @@ Alternatively, run this as a Docker container.
 Assuming that the video file is in the current working directory, an example
 =docker run= execution will look like
 #+BEGIN_SRC shell
-  docker run --rm -v .:/media:ro ghcr.io/arifer612/musicbrainz-video-tracklist:latest /media/video_file_name
+  docker run --rm -v .:/media:ro ghcr.io/arifer612/musicbrainz-video-tracklist:latest VIDEO_FILE_NAME
 #+END_SRC
+where "VIDEO_FILE_NAME" is to be replaced with the name of the video file in question.
